@@ -18,7 +18,7 @@
 .boardGridItem:hover {
   animation-name: pulseify;
   animation-delay: 0s;
-  animation-duration: .7s;
+  animation-duration: .3s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
