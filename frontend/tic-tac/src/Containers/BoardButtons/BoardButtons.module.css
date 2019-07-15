@@ -1,0 +1,4 @@
+.boardButtons {
+  grid-area: boardButtons;
+  background-color: lightskyblue;
+}
