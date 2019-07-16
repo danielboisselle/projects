@@ -2,7 +2,7 @@
   height: 700px;
   display: grid;
   align-content: space-between;
-  grid-template-columns: auto 300px auto;
+  grid-template-columns: auto 90vw auto;
   grid-template-rows: 10% 15% auto 14%;
   grid-template-areas: 
     "header header       header"
