@@ -8,27 +8,37 @@ import {
   PlayerStats
 } from './Containers';
 
-import PlayerContext from './Context/playerContext';
+import PlayerContext, { playerContextInitalState } from './Context/playerContext';
 
 function App() {
-  const [playerTurn, dispatch] = useReducer((state, action) => {
+  const [{ p0, p1, currentPlayer }, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case 'TOGGLE':
-        // TODO: Check for winner
-        return !state;
+        // Player is toggled by it's id
+        const currentPlayer = state.currentPlayer === 'p0' ? 'p1' : 'p0';
+
+        return {
+          ...state,
+          currentPlayer: currentPlayer,
+        }
       default:
         return state;
     }
-  }, true)
+  }, playerContextInitalState);
 
   const playerMoved = () => {
-    dispatch({ type: 'TOGGLE' })
+    dispatch({ type: 'TOGGLE' });
   }
 
   return (
     <div className="App">
       <Header />
-      <PlayerContext.Provider value={{ playerTurn, playerMoved }}>
+      <PlayerContext.Provider value={{        
+        p0,
+        p1,
+        currentPlayer,
+        playerMoved,
+      }}>
         <PlayerStats />
         <GameBoard />
       </PlayerContext.Provider>

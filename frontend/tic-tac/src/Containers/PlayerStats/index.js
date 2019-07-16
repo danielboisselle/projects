@@ -4,14 +4,24 @@ import PlayerContext from '../../Context/playerContext';
 
 function PlayerStats() {
   const playerConsumer = context => {
-    let playerName = 'Player 1';
+    const {
+      currentPlayer
+    } = context;
 
-    // Players 2 turn
-    if (!context.playerTurn) {
-      playerName = 'Player 2'
-    }
+    const {
+      name,
+    } = context[currentPlayer];
 
-    return playerName;
+    return (
+      <React.Fragment>
+        <div className={styles.currentPlayer}>
+          <p>{name}</p>
+        </div>
+        <div className={styles.playerScores}>
+        {name}
+        </div>
+      </React.Fragment>
+    )
   }
 
   return (

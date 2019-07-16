@@ -8,7 +8,7 @@ function BoardGrid() {
   // Player 1s turn
   let currentTurn = 'X'
 
-  if (!context.playerTurn) { // Player 2s turn
+  if (context.currentPlayer === 'p1') { // Player 2s turn
     currentTurn = 'O'
   }
 
@@ -28,7 +28,7 @@ function BoardGrid() {
         const copy = [...boardGridState];
         copy.splice(i, 1, currentTurn)
         setBoardGridState(copy);
-        context.playerMoved(!context.playerTurn);
+        context.playerMoved();
       }}>
       {boardGridState[i]}
     </div>
