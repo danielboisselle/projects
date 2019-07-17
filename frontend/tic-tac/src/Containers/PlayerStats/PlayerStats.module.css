@@ -5,14 +5,25 @@
   margin: 0 auto;
 }
 
-.currentPlayer > p {
-  
-}
-
 .playerScores {
   grid-area: playerScores;
   background-color: lightsteelblue;
   margin: 0 auto;
+}
+
+.playerScores > h6 {
+  margin: 0;
+}
+
+.playerScores > ul {
+  list-style: none;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul > li {
+  flex-basis: 50%;
 }
 
 .player1 {

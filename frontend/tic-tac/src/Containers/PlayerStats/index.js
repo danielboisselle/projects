@@ -5,7 +5,9 @@ import PlayerContext from '../../Context/playerContext';
 function PlayerStats() {
   const playerConsumer = context => {
     const {
-      currentPlayer
+      currentPlayer,
+      p0: Player1,
+      p1: Player2,
     } = context;
 
     const {
@@ -18,7 +20,13 @@ function PlayerStats() {
           <p>{name}</p>
         </div>
         <div className={styles.playerScores}>
-        {name}
+          <h6>Scores:</h6>
+          <ul>
+            <li>{Player1.name}</li>
+            <li> - {Player1.score}</li>
+            <li>{Player2.name}</li>
+            <li> - {Player2.score}</li>
+          </ul>
         </div>
       </React.Fragment>
     )
