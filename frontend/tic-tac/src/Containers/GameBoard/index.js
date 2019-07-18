@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './GameBoard.module.css';
 import BoardGrid from '../../Components/BoardGrid';
 
-function GameBoard() {
+function GameBoard(props) {
   return (
     <div className={styles.gameBoard}>
-      <BoardGrid />
+      <BoardGrid {...props} />
     </div>
   )
 }
