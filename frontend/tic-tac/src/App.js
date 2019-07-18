@@ -15,8 +15,6 @@ function App() {
   const [playerMove, setPlayerMove] = useState('X');
 
   const playerMoved = key => {
-    setPlayerMove(playerMove === 'X' ? 'O' : 'X');
-
     const updatedBoard = boardState.map(item => {
       if (item.key === key) {
         return { ...item, value: playerMove }
@@ -30,6 +28,8 @@ function App() {
     if (checkIfWinner(updatedBoard.map((i, key) => i.value ? i.value : key ))) {
       setGameStatus('OVER')
       addPlayerScore();
+    } else {
+      setPlayerMove(playerMove === 'X' ? 'O' : 'X');
     }
   }
 
@@ -42,21 +42,13 @@ function App() {
   }
 
   const endGame = () => {
+    setPlayers(initalPlayerState())
     setBoardState(initBoard())
     setPlayerMove('X')
     setGameStatus('NONE')
   }
 
-  const [players, setPlayers] = useState({
-    p1: {
-      name: null,
-      score: 0
-    },
-    p2: {
-      name: null,
-      score: 0,
-    }
-  })
+  const [players, setPlayers] = useState(initalPlayerState())
 
   const setPlayerNames = (p1Name = 'Player 1', p2Name = 'Player 2') => {
     setPlayers({
@@ -73,6 +65,8 @@ function App() {
     setPlayers(copy)
   }
 
+  const currentPlayer = playerMove === 'X' ? players.p1 : players.p2;
+
   return (
     <div className="App">
       {gameStatus !== 'STARTED' ? <Modal
@@ -80,10 +74,13 @@ function App() {
         setPlayerNames={setPlayerNames}
         endGame={endGame}
         newGame={newGame}
+        currentPlayer={currentPlayer}
       /> : null}
       <Header />
       <PlayerStats
         players={players}
+        playerMove={playerMove}
+        currentPlayer={currentPlayer}
       />
       <GameBoard
         boardState={boardState}
@@ -100,6 +97,19 @@ function App() {
 export default App;
 
 // FIXME: Inital approach - not DRY, not optimal
+
+function initalPlayerState() {
+  return {
+    p1: {
+      name: null,
+      score: 0
+    },
+    p2: {
+      name: null,
+      score: 0,
+    }
+  }
+}
 
 function initBoard() {
   return Array(9).fill(null).map(() => {

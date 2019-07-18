@@ -7,6 +7,7 @@ const Modal = props => {
     setPlayerNames,
     endGame,
     newGame,
+    currentPlayer,
   } = props;
 
   const [p1Name, setP1Name] = useState('')
@@ -31,11 +32,11 @@ const Modal = props => {
     return (
       <div className={styles.modalBackground}>
         <div className={styles.modal}>
-          <p>The winner is:</p>
+          <p>The winner is: {currentPlayer.name}</p>
           <button
-            onClick={props.newGame}>New Game</button>
+            onClick={newGame}>New Game</button>
           <button
-            onClick={props.newGame}>End Game</button>
+            onClick={endGame}>End Game</button>
         </div>
       </div>
     )
