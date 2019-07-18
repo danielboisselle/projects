@@ -1,42 +1,26 @@
 import React from 'react';
-import styles from './PlayerStats.module.css';
-import PlayerContext from '../../Context/playerContext';
+import styles from './PlayerStats.module.css'
 
-function PlayerStats() {
-  const playerConsumer = context => {
-    const {
-      currentPlayer,
-      p0: Player1,
-      p1: Player2,
-    } = context;
-
-    const {
-      name,
-    } = context[currentPlayer];
-
-    return (
-      <React.Fragment>
-        <div className={styles.currentPlayer}>
-          <p>{name}</p>
-        </div>
-        <div className={styles.playerScores}>
-          <h6>Scores:</h6>
-          <ul>
-            <li>{Player1.name}</li>
-            <li> - {Player1.score}</li>
-            <li>{Player2.name}</li>
-            <li> - {Player2.score}</li>
-          </ul>
-        </div>
-      </React.Fragment>
-    )
-  }
+function PlayerStats(props) {
+  const {
+    p1,
+    p2
+  } = props.players;
 
   return (
     <div className={styles.playerStats}>
-      <PlayerContext.Consumer>
-        {playerConsumer}
-      </PlayerContext.Consumer>
+      <div className={styles.currentPlayer}>
+        <p>{p1.name}</p>
+      </div>
+      <div className={styles.playerScores}>
+        <h6>Scores:</h6>
+        <ul>
+          <li>{p1.name}</li>
+          <li> - {p1.score}</li>
+          <li>{p2.name}</li>
+          <li> - {p2.score}</li>
+        </ul>
+      </div>
     </div>
   )
 }
