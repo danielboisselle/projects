@@ -25,7 +25,7 @@ function App() {
 
     setBoardState(updatedBoard);
 
-    if (checkIfWinner(updatedBoard.map((i, key) => i.value ? i.value : key ))) {
+    if (checkIfWinner(updatedBoard.map((i, key) => i.value ? i.value : key))) {
       setGameStatus('OVER')
       addPlayerScore();
     } else {
@@ -88,7 +88,7 @@ function App() {
         playerMoved={playerMoved}
       />
       <BoardButtons
-      // setStatus={}
+        endGame={endGame}
       />
     </div>
   );
@@ -101,11 +101,11 @@ export default App;
 function initalPlayerState() {
   return {
     p1: {
-      name: null,
+      name: 'Player 1',
       score: 0
     },
     p2: {
-      name: null,
+      name: 'Player 2',
       score: 0,
     }
   }
