@@ -2,3 +2,7 @@
   grid-area: boardButtons;
   background-color: lightskyblue;
 }
+
+.endGame {
+  background-color: red;
+}
