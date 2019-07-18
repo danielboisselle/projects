@@ -35,6 +35,9 @@ function App() {
 
   const [gameStatus, setGameStatus] = useState('NONE') // STARTED | OVER | NONE
 
+  // DEV:
+  // const [gameStatus, setGameStatus] = useState('STARTED') // STARTED | OVER | NONE
+
   const newGame = () => {
     setBoardState(initBoard())
     setPlayerMove('X')

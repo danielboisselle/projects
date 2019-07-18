@@ -13,34 +13,39 @@ const Modal = props => {
   const [p1Name, setP1Name] = useState(undefined)
   const [p2Name, setP2Name] = useState(undefined)
 
-  if (gameStatus === 'NONE') {
-    return (
-      <div className={styles.modalBackground}>
-        <div className={styles.modal}>
+  let modalContext = null;
+
+  switch (gameStatus) {
+    case 'NONE':
+      modalContext = (
+        <>
           <input onChange={e => setP1Name(e.target.value)}></input>
           <input onChange={e => setP2Name(e.target.value)}></input>
           <button type="submit" onClick={() => {
             setPlayerNames(p1Name, p2Name)
             newGame()
           }}>Submit</button>
-        </div>
-      </div>
-    )
+        </>
+      )
+      break;
+    case 'OVER':
+      modalContext = (
+        <>
+          <p>The winner is: {currentPlayer.name}</p>
+          <button onClick={newGame}>New Game</button>
+          <button onClick={endGame}>End Game</button>
+        </>
+      )
+      break;
   }
 
-  if (gameStatus === 'OVER') {
-    return (
-      <div className={styles.modalBackground}>
-        <div className={styles.modal}>
-          <p>The winner is: {currentPlayer.name}</p>
-          <button
-            onClick={newGame}>New Game</button>
-          <button
-            onClick={endGame}>End Game</button>
-        </div>
+  return (
+    <div className={styles.modalBackground}>
+      <div className={styles.modal}>
+        {modalContext}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Modal;
