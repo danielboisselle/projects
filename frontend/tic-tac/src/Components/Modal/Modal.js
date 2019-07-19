@@ -40,11 +40,12 @@ const Modal = props => {
   }
 
   return (
-    <div className={styles.modalBackground}>
+    <>
+      <div className={styles.modalBackground}></div>
       <div className={styles.modal}>
         {modalContext}
       </div>
-    </div>
+    </>
   )
 }
 
