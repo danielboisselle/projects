@@ -42,8 +42,10 @@ const Modal = props => {
   return (
     <>
       <div className={styles.modalBackground}></div>
-      <div className={styles.modal}>
-        {modalContext}
+      <div className={styles.modalWrapper}>
+        <div className={styles.modal}>
+          {modalContext}
+        </div>
       </div>
     </>
   )
