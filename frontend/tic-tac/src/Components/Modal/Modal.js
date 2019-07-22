@@ -10,8 +10,8 @@ const Modal = props => {
     currentPlayer,
   } = props;
 
-  const [p1Name, setP1Name] = useState(undefined)
-  const [p2Name, setP2Name] = useState(undefined)
+  const [p1Name, setP1Name] = useState("")
+  const [p2Name, setP2Name] = useState("")
 
   let modalContext = null;
 

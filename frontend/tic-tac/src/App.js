@@ -54,9 +54,16 @@ function App() {
   const [players, setPlayers] = useState(initalPlayerState())
 
   const setPlayerNames = (p1Name = 'Player 1', p2Name = 'Player 2') => {
+    let localP1Name = p1Name.trim();
+    let localP2Name = p2Name.trim();
+
+    if (!localP1Name.length) localP1Name = 'Player 1'
+
+    if (!localP2Name.length) localP2Name = 'Player 2'
+
     setPlayers({
-      p1: { ...players.p1, name: p1Name },
-      p2: { ...players.p2, name: p2Name },
+      p1: { ...players.p1, name: localP1Name },
+      p2: { ...players.p2, name: localP2Name },
     })
   }
 
