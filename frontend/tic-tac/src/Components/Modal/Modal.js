@@ -41,8 +41,8 @@ const Modal = props => {
 
   return (
     <>
-      <div className={styles.modalBackground}></div>
-      <div className={styles.modalWrapper}>
+      <div className={[styles.modalBackground, styles.fixedSizing].join(' ')}></div>
+      <div className={[styles.modalWrapper, styles.fixedSizing].join(' ')}>
         <div className={styles.modal}>
           {modalContext}
         </div>
