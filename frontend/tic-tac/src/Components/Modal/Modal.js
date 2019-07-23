@@ -48,10 +48,6 @@ const Modal = props => {
       )
       break;
   }
-  
-  useEffect(() => {
-    console.log('mounting');
-  }, [])
 
   return (
     <Transition
