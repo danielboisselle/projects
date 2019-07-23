@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Modal.module.css';
 import { Transition } from 'react-transition-group';
+import Button from '../Button';
 
 const Modal = props => {
   const {
@@ -24,11 +25,14 @@ const Modal = props => {
         <>
           <input onChange={e => setP1Name(e.target.value)}></input>
           <input onChange={e => setP2Name(e.target.value)}></input>
-          <button type="submit" onClick={() => {
-            setInModal(false);
-            setPlayerNames(p1Name, p2Name);
-            setTimeout(newGame, 300)
-          }}>Submit</button>
+          <Button
+            onClick={() => {
+              setInModal(false);
+              setPlayerNames(p1Name, p2Name);
+              setTimeout(newGame, 300)
+            }}
+            text="Submit"
+          />
         </>
       )
       break;
@@ -36,14 +40,20 @@ const Modal = props => {
       modalContext = (
         <>
           <p>The winner is: {currentPlayer.name}</p>
-          <button onClick={() => {
-            setInModal(false)
-            setTimeout(newGame, 300)
-          }}>New Game</button>
-          <button onClick={() => {
-            setInModal(false)
-            setTimeout(endGame, 300)
-          }}>End Game</button>
+          <Button
+            onClick={() => {
+              setInModal(false)
+              setTimeout(newGame, 300)
+            }}
+            text="New Game"
+          />
+          <Button
+            onClick={() => {
+              setInModal(false)
+              setTimeout(endGame, 300)
+            }}
+            text="End Game"
+          />
         </>
       )
       break;
