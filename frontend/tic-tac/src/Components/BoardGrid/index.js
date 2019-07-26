@@ -22,4 +22,4 @@ function BoardGrid(props) {
   )
 }
 
-export default BoardGrid;
+export default React.memo(BoardGrid);
