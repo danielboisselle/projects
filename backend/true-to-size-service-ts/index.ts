@@ -1,10 +1,10 @@
 import express = require('express');
+import bodyParser = require('body-parser');
 
 const app: express.Application = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello world')
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 3000;
 
