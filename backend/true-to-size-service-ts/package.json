@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./index.ts",
-    "prod": "tsc && node ./build/index.js"
+    "prod": "tsc && node ./build/index.js",
+    "tslint": "tslint --project tsconfig.json",
+    "fix:tslint": "tslint --fix --project tsconfig.json"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,8 @@
     "typescript": "^3.5.3"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.17.0",
     "@types/express": "^4.17.0",
-    "@types/body-parser": "^1.17.0"
+    "tslint": "^5.18.0"
   }
 }
