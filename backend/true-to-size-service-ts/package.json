@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpileOnly ./index.ts",
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/index.ts",
     "prod": "tsc && node ./build/index.js",
     "tslint": "tslint --project tsconfig.json",
     "fix:tslint": "tslint --fix --project tsconfig.json"
