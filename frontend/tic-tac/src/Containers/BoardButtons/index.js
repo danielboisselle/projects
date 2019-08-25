@@ -16,7 +16,7 @@ export default function boardButtons(props) {
       <button
         type="submit"
         className={[styles.boardButtons, styles.endGame]}
-        onClick={endGame}>New game</button>
+        onClick={() => { }}>New game</button>
     </div>
   )
 }
