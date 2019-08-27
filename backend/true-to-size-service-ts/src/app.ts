@@ -15,6 +15,7 @@ class App {
 
   public listen() {
     this.app.listen(this.port, () => {
+      // tslint:disable-next-line: no-console
       console.log(`App listening on the port ${this.port}`);
     });
   }
@@ -23,8 +24,8 @@ class App {
     this.app.use(bodyParser.json());
   }
 
-  private initializeControllers(controllers) {
-    controllers.forEach((controller) => {
+  private initializeControllers(controllers: any) {
+    controllers.forEach((controller: any) => {
       this.app.use("/", controller.router);
     });
   }
