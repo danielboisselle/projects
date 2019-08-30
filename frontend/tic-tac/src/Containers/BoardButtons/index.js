@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './BoardButtons.module.css';
 
+// TODO: css modules not working as expected
+
 export default function boardButtons(props) {
   const {
     endGame,
