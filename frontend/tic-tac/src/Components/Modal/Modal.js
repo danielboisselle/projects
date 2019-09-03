@@ -57,6 +57,8 @@ const Modal = props => {
         </>
       )
       break;
+      default:
+        break;
   }
 
   return (
