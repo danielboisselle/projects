@@ -57,8 +57,8 @@ const Modal = props => {
         </>
       )
       break;
-      default:
-        break;
+    default:
+      break;
   }
 
   return (
@@ -67,8 +67,6 @@ const Modal = props => {
       timeout={300}
     >
       {state => {
-        console.log(state)
-
         const localStyles = [
           styles.modal,
           state === 'entered' ? styles.enter : state === 'exiting' ? styles.exit : null
